@@ -76,3 +76,28 @@ event HudLowAmmoPulseStop
 	Animate LowAmmoBG		BgColor		"Blank"		Accel 0.0 0.0
 	Animate LowAmmoBG		Alpha		"0"		Accel 0.0 0.0
 }
+
+//HudSpyDisguiseChanged refers to the outline being at its largest point
+//HudSpyDisguiseHide refers to it at its smallest point
+//Alpha changes opacity of the outline
+//Position changes position. Feel free to remove the c, but your numbers will be wildly different.
+//Size changes size.
+//Remember to paste over the already existing commands (and back them up!)
+
+event HudSpyDisguiseChanged
+{
+Animate PlayerStatusSpyOutlineImage Alpha "255" Linear 0.0 0.2
+
+Animate PlayerStatusSpyOutlineImage Position "c-100 c50" Linear 0.0 0.2
+Animate PlayerStatusSpyOutlineImage Size "0" Linear 0.0 0.2
+
+RunEvent HudSpyDisguiseHide 0.7
+}
+
+event HudSpyDisguiseHide
+{
+Animate PlayerStatusSpyOutlineImage Position "c-50 c105" Linear 0.0 0.2
+Animate PlayerStatusSpyOutlineImage Size "0" Linear 0.0 0.2
+
+Animate PlayerStatusSpyOutlineImage Alpha "0" Linear 0.2 0.1
+}
