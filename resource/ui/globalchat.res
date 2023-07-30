@@ -15,9 +15,9 @@
 		"mouseinputenabled"		"1"
 		"border"		"ahudPanelBorderLight"
 
-		"log_font_small"			"HudFontSmall"
-		"log_font_medium"			"HudFontMediumSmallSecondary"
-		"log_font_large"			"HudFontMediumSecondary"
+		"log_font_small"			"ChatFont"
+		"log_font_medium"			"ChatFont"
+		"log_font_large"			"ChatFont"
 
 		"chat_color_default"		"255 255 255 255"
 		"chat_color_player_name"	"255 255 0 255"
@@ -42,7 +42,7 @@
 		"visible"		"1"
 		"proportionaltoparent"	"1"
 		"RoundedCorners"	"0"
-		"font"			"HudFontSmallest"
+		"font"			"ChatFont"
 
 		"bgcolor_override"	"0 0 0 50"
 
@@ -94,7 +94,7 @@
 		"proportionaltoparent"	"1"
 		"bgcolor_override"	"0 0 0 255"
 		"RoundedCorners"	"0"
-		"font"			"HudFontSmallest"
+		"font"			"ChatMiniFont"
 		"alpha"			"0"
 		"mouseinputenabled"	"0"
 
