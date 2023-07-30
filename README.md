@@ -61,7 +61,5 @@ Animate PlayerStatusSpyOutlineImage Alpha "0" Linear 0.2 0.1
 ## Original Credit / References
 Thanks to [nokk](https://github.com/n0kk) for creating ahud.
 
-<br>
-
 In addition, I would also like to thank the creators of [ToonHud](https://toonhud.com/) for giving me the custom font size scripts.
 
