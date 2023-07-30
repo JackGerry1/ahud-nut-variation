@@ -1,54 +1,67 @@
-# ahud
+# ahud nut variation
 
-A custom HUD for Team Fortress 2.  
-Original concept by [kyle](https://github.com/hikyle).
+A customised version of ahud for Team Fortress 2. 
 
-#### Features
-
-* Custom colors
-* Custom crosshairs
-* 6v6 scoreboard
-* Alternative styles
-* Home Server button
-* 16:9, 16:10, and 4:3 support
-* Matchmaking and MvM support
-
-#### Screenshots
-
-* [Main Menu](https://i.imgur.com/Kx70I3P.jpg)
-* [Buffed HP](https://i.imgur.com/WgR6jeE.jpg)
-* [Low HP & Ammo](https://i.imgur.com/AV3mNzm.jpg)
-* [Alt. Buffed HP](https://i.imgur.com/BKmdCnp.jpg)
-* [Alt. Low HP & Ammo](https://i.imgur.com/m4gILKr.jpg)
-* [Default scoreboard](https://i.imgur.com/cigUnUo.jpg)
-* [6v6 scoreboard](https://i.imgur.com/xya3Hkg.jpg)
-
-More screenshots: [Imgur album](http://imgur.com/a/569GH)
+## Customisations Made
+* Made the font bigger in the lobby and in-game chat.
+* Disabled the spy disguise animation
 
 ## Installation
 
-1. Download ahud by clicking `Download ZIP` from the green `Code` button on the ahud GitHub repo.
+1. Download ahud nut variation by clicking `Download ZIP` from the green `Code` button on the ahud-nut-variation GitHub repo.
 2. Navigate to  `..\Steam\steamapps\common\Team Fortress 2\tf\custom`.
-3. Extract `ahud-master` from the ZIP file to the `custom` folder.
-4. Verify `materials`, `resource`, `scripts`, and `info.vdf` are inside the `ahud-master` folder.
+3. Extract `ahud-nut-variation` from the ZIP file to the `custom` folder.
+4. Verify `materials`, `resource`, `scripts`, and `info.vdf` is inside the `ahud-nut-variation` folder.
 5. Run Team Fortress 2.
-
-For thorough instructions on installing a HUD for TF2, check out the [HUDS.TF guide](https://huds.tf/forum/showthread.php?tid=1987).  
-A third-party installer, [ainstaller](https://github.com/ainstaller/aInstaller/releases), is also available.
-
-## Customization
-
-Refer to the [Wiki](https://github.com/n0kk/ahud/wiki/Customization).
-
-## Support
-[Report bugs here](https://github.com/n0kk/ahud/issues)
 
 **Windows**: Yes
 * 4:3 - 1024×768 and above  
 * 16:9 - 1280x720 and above  
 * 16:10 -  1280x800 and above  
 
-**Linux**: No  
-**Mac**: No
+**Linux**: Yes, with minor issues with the tickboxes in the options and advanced options menus. 
+**Mac**: Idk, I suspect that it will probably work but haven't tested it. 
 
-I have tested ahud on my Windows PC using a 16:9 monitor primarily on resolutions 1280x720 and above. ahud works on 16:10 and 4:3 and I'll be providing support for these aspect ratios as best as I can. Unfortunately, no Mac or Linux support.
+nokk did the testing for ahud on his Windows PC using a 16:9 monitor primarily on resolutions 1280x720 and above. ahud also works on 16:10 and 4:3. 
+
+In addition, I have run ahud on my Linux machine with no problems at 16.9 on the resolution 1920x1080. 
+
+## Re-Enable The Spy Disguise Animation
+1. Go to `ahud-nut-variation\scripts\hudanimations_ahud.txt`
+2. Remove the following lines of code
+```ReScript
+//HudSpyDisguiseChanged refers to the outline being at its largest point
+//HudSpyDisguiseHide refers to it at its smallest point
+//Alpha changes the opacity of the outline
+//Position changes position. Feel free to remove the c, but your numbers will be wildly different.
+//Size changes size.
+//Remember to paste over the already existing commands (and back them up!)
+
+event HudSpyDisguiseChanged
+{
+Animate PlayerStatusSpyOutlineImage Alpha "255" Linear 0.0 0.2
+
+Animate PlayerStatusSpyOutlineImage Position "c-100 c50" Linear 0.0 0.2
+Animate PlayerStatusSpyOutlineImage Size "0" Linear 0.0 0.2
+
+RunEvent HudSpyDisguiseHide 0.7
+}
+
+event HudSpyDisguiseHide
+{
+Animate PlayerStatusSpyOutlineImage Position "c-50 c105" Linear 0.0 0.2
+Animate PlayerStatusSpyOutlineImage Size "0" Linear 0.0 0.2
+
+Animate PlayerStatusSpyOutlineImage Alpha "0" Linear 0.2 0.1
+}
+```
+3. Save the hudanimations_ahud.txt file
+4. Run TF2
+
+## Original Credit / References
+Thanks to [nokk](https://github.com/n0kk) for creating ahud.
+
+<br>
+
+In addition, I would also like to thank the creators of [ToonHud](https://toonhud.com/) for giving me the custom font size scripts.
+
